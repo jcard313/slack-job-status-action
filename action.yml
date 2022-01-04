@@ -21,6 +21,7 @@ runs:
     - ${{ inputs.job-status }}
     - ${{ inputs.slack-bot-token }}
     - ${{ inputs.channel }}
+    - ${{ inputs.partner-name }}
 
 branding:
   icon: "activity"

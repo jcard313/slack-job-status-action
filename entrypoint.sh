@@ -6,6 +6,7 @@ set -eu
 JOB_STATUS=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 SLACK_BOT_TOKEN=$2
 CHANNEL=$3
+PARTNER_NAME=$4
 
 REPO_NAME=${GITHUB_REPOSITORY##*/}
 REPOSITORY=$GITHUB_REPOSITORY
@@ -20,11 +21,11 @@ slackMsg() {
 }
 
 if [ "$JOB_STATUS" = 'success' ]; then
-    slackMsg "SUCCESS" "#00FF00"
+    slackMsg "SUCCESS [$PARTNER_NAME]" "#00FF00"
     elif [ "$JOB_STATUS" = 'cancelled' ]; then
-    slackMsg "CANCELLED" "#EE6F47"
+    slackMsg "CANCELLED [$PARTNER_NAME]" "#EE6F47"
 else
-    slackMsg "FAILURE" "#FF0000"
+    slackMsg "FAILURE [$PARTNER_NAME]" "#FF0000"
 fi
 
 curl -X POST \
