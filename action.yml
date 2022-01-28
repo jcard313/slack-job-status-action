@@ -15,6 +15,7 @@ inputs:
     required: true
   partner-name:
     description: "The name of the partner being tested on"
+    required: false
 
 runs:
   using: "docker"
